@@ -1,0 +1,16 @@
+from Crypto.Cipher import DES
+from Crypto.Random import get_random_bytes
+from Crypto.Util.Padding import pad
+from Crypto.Util.Padding import unpad
+
+#key=get_random_bytes(8)
+key = b"academic"
+cipher = DES.new(key,DES.MODE_CBC)
+plaintext = b"Hello"
+ciphertext= cipher.encrypt(pad(plaintext,DES.block_size))
+
+print(ciphertext)
+
+cipher_decrypt = DES.new(key,DES.MODE_CBC,iv=cipher.iv)
+
+print(unpad(cipher_decrypt.decrypt(ciphertext),DES.block_size).decode('utf-8'))

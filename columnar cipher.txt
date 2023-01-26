@@ -1,0 +1,10 @@
+from secretpy import ColumnarTransposition, alphabets
+
+original = input('Enter text: ')
+key = input('Enter key: ')
+ct_obj = ColumnarTransposition()
+
+choice = int(input('1. Encrypt\n2. Decrypt\n--> '))
+result = ct_obj.encrypt(original, key, alphabets.ENGLISH) if choice == 1 else ct_obj.decrypt(original, key, alphabets.ENGLISH)
+
+print(f'Result: {result}')

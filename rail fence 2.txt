@@ -1,0 +1,10 @@
+from secretpy import Zigzag, alphabets
+
+original = input('Enter text: ')
+key = int(input('Enter key: '))
+railfence_obj = Zigzag()
+
+choice = int(input('1. Encrypt\n2. Decrypt\n--> '))
+result = railfence_obj.encrypt(original, key, alphabets.ENGLISH) if choice == 1 else railfence_obj.decrypt(original, key, alphabets.ENGLISH)
+
+print(f'Result: {result}')
